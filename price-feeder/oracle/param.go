@@ -1,6 +1,6 @@
 package oracle
 
-import oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+import oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 
 const (
 	// paramsCacheInterval represents the amount of blocks

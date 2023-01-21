@@ -4,9 +4,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+	oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 var ten = sdk.MustNewDecFromStr("10")

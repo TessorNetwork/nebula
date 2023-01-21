@@ -33,9 +33,9 @@ import (
 	tmjson "github.com/tendermint/tendermint/libs/json"
 	rpchttp "github.com/tendermint/tendermint/rpc/client/http"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/leverage/fixtures"
-	leveragetypes "github.com/tessornetwork/nebula/v3/x/leverage/types"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/leverage/fixtures"
+	leveragetypes "github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 const (

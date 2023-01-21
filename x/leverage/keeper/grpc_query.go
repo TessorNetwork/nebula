@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 var _ types.QueryServer = Querier{}

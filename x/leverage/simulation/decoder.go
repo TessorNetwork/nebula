@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/kv"
 	gogotypes "github.com/gogo/protobuf/types"
 
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 // NewDecodeStore returns a decoder function closure that unmarshals the KVPair's

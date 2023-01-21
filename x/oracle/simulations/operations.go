@@ -14,10 +14,10 @@ import (
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	nebulasim "github.com/tessornetwork/nebula/v3/util/sim"
-	"github.com/tessornetwork/nebula/v3/x/oracle/keeper"
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	nebulasim "github.com/tessornetwork/nebula/util/sim"
+	"github.com/tessornetwork/nebula/x/oracle/keeper"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 // Simulation operation weights constants

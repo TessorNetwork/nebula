@@ -19,8 +19,8 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	dbm "github.com/tendermint/tm-db"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	appparams "github.com/tessornetwork/nebula/app/params"
 )
 
 func init() {

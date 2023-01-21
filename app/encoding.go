@@ -3,7 +3,7 @@ package app
 import (
 	"github.com/cosmos/cosmos-sdk/std"
 
-	"github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/app/params"
 )
 
 // MakeEncodingConfig returns the application's encoding configuration with all

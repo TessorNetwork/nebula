@@ -12,8 +12,8 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	"github.com/tessornetwork/nebula/v3/app/params"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	"github.com/tessornetwork/nebula/app/params"
 )
 
 const (

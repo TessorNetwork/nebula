@@ -12,12 +12,12 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/leverage"
-	"github.com/tessornetwork/nebula/v3/x/leverage/fixtures"
-	"github.com/tessornetwork/nebula/v3/x/leverage/simulation"
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/leverage"
+	"github.com/tessornetwork/nebula/x/leverage/fixtures"
+	"github.com/tessornetwork/nebula/x/leverage/simulation"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 // SimTestSuite wraps the test suite for running the simulations

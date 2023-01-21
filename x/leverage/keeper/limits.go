@@ -3,7 +3,7 @@ package keeper
 import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 // maxWithdraw calculates the maximum amount of uTokens an account can currently withdraw.

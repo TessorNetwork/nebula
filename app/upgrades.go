@@ -11,10 +11,10 @@ import (
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 	bech32ibctypes "github.com/osmosis-labs/bech32-ibc/x/bech32ibc/types"
 
-	"github.com/tessornetwork/nebula/v3/app/upgradev3"
-	"github.com/tessornetwork/nebula/v3/app/upgradev3x3"
-	leveragetypes "github.com/tessornetwork/nebula/v3/x/leverage/types"
-	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/app/upgradev3"
+	"github.com/tessornetwork/nebula/app/upgradev3x3"
+	leveragetypes "github.com/tessornetwork/nebula/x/leverage/types"
+	oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 func (app NebulaApp) RegisterUpgradeHandlers(experimental bool) {

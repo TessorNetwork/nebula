@@ -19,10 +19,10 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/oracle/keeper"
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/oracle/keeper"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 const (

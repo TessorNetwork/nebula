@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+	oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 func TestParamCacheIsOutdated(t *testing.T) {

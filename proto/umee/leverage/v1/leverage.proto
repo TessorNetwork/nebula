@@ -3,7 +3,7 @@ package nebula.leverage.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/tessornetwork/nebula/v3/x/leverage/types";
+option go_package = "github.com/tessornetwork/nebula/x/leverage/types";
 
 option (gogoproto.goproto_getters_all) = false;
 

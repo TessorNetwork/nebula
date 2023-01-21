@@ -25,8 +25,8 @@ import (
 	p2p "github.com/tendermint/tendermint/p2p"
 	"github.com/tendermint/tendermint/privval"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	appparams "github.com/tessornetwork/nebula/app/params"
 )
 
 type validator struct {

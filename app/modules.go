@@ -21,7 +21,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	appparams "github.com/tessornetwork/nebula/app/params"
 )
 
 // BankModule defines a custom wrapper around the x/bank module's AppModuleBasic

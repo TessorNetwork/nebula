@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/tessornetwork/nebula/v3/util/genmap"
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/util/genmap"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 // prependNebulaIfUnique pushs `unebula` denom to the front of the list, if it is not yet included.

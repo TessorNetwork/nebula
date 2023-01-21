@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	appparams "github.com/tessornetwork/nebula/app/params"
 )
 
 func TestKeyExchangeRate(t *testing.T) {

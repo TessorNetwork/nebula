@@ -1,4 +1,4 @@
-module github.com/tessornetwork/nebula/v3
+module github.com/tessornetwork/nebula
 
 go 1.19
 

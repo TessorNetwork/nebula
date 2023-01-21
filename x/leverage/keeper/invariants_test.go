@@ -1,9 +1,9 @@
 package keeper_test
 
 import (
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/leverage/keeper"
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/leverage/keeper"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 func (s *IntegrationTestSuite) TestReserveAmountInvariant() {

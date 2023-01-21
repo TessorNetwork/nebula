@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/gov/types"
 	gov1b1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/tessornetwork/nebula/v3/util/checkers"
+	"github.com/tessornetwork/nebula/util/checkers"
 	"gopkg.in/yaml.v3"
 )
 

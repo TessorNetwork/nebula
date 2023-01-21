@@ -9,7 +9,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/spf13/cobra"
 
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 // GetTxCmd returns the CLI transaction commands for the x/oracle module.

@@ -8,7 +8,7 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
 	"github.com/tessornetwork/nebula/price-feeder/oracle/types"
-	"github.com/tessornetwork/nebula/v3/util/coin"
+	"github.com/tessornetwork/nebula/util/coin"
 )
 
 func TestHuobiProvider_GetTickerPrices(t *testing.T) {

@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/tessornetwork/nebula/v3/x/oracle/keeper"
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/x/oracle/keeper"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 // InitGenesis initializes the x/oracle module's state from a provided genesis

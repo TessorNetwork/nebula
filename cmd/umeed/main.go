@@ -6,9 +6,9 @@ import (
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/cmd/nebud/cmd"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/cmd/nebud/cmd"
 )
 
 func main() {

@@ -7,10 +7,10 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	signing "github.com/cosmos/cosmos-sdk/x/auth/signing"
 
-	"github.com/tessornetwork/nebula/v3/ante"
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/util/coin"
-	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/ante"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/util/coin"
+	oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 func (suite *IntegrationTestSuite) TestFeeAndPriority() {

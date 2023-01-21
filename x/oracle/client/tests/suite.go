@@ -12,9 +12,9 @@ import (
 	"github.com/tendermint/tendermint/crypto/secp256k1"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/oracle/client/cli"
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/oracle/client/cli"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 type IntegrationTestSuite struct {

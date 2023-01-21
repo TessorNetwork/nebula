@@ -21,8 +21,8 @@ import (
 	"github.com/rs/zerolog"
 	rpchttp "github.com/tendermint/tendermint/rpc/client/http"
 	tmjsonclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	nebulaparams "github.com/tessornetwork/nebula/v3/app/params"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	nebulaparams "github.com/tessornetwork/nebula/app/params"
 )
 
 type (

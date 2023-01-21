@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	appparams "github.com/tessornetwork/nebula/app/params"
 )
 
 func (s *IntegrationTestSuite) TestSetReserves() {

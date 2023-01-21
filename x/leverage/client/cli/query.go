@@ -7,8 +7,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
-	"github.com/tessornetwork/nebula/v3/util/cli"
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/util/cli"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 // Flag constants

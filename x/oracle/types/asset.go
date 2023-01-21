@@ -3,7 +3,7 @@ package types
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	appparams "github.com/tessornetwork/nebula/app/params"
 )
 
 const (

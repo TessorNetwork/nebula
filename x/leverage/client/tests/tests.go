@@ -3,10 +3,10 @@ package tests
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/leverage/client/cli"
-	"github.com/tessornetwork/nebula/v3/x/leverage/fixtures"
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/leverage/client/cli"
+	"github.com/tessornetwork/nebula/x/leverage/fixtures"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 func (s *IntegrationTestSuite) TestInvalidQueries() {

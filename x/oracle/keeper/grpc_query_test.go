@@ -6,9 +6,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/crypto/secp256k1"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/oracle/keeper"
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/oracle/keeper"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 func (s *IntegrationTestSuite) TestQuerier_ActiveExchangeRates() {

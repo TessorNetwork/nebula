@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	nebulaapp "github.com/tessornetwork/nebula/app"
 )
 
 func TestIntegrationTestSuite(t *testing.T) {

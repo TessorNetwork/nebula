@@ -18,10 +18,10 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
-	"github.com/tessornetwork/nebula/v3/x/oracle/client/cli"
-	"github.com/tessornetwork/nebula/v3/x/oracle/keeper"
-	simulation "github.com/tessornetwork/nebula/v3/x/oracle/simulations"
-	"github.com/tessornetwork/nebula/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/x/oracle/client/cli"
+	"github.com/tessornetwork/nebula/x/oracle/keeper"
+	simulation "github.com/tessornetwork/nebula/x/oracle/simulations"
+	"github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 var (

@@ -7,7 +7,7 @@ import "cosmos/msg/v1/msg.proto";
 import "gogoproto/gogo.proto";
 import "nebula/incentive/v1/incentive.proto";
 
-option go_package = "github.com/tessornetwork/nebula/v3/x/incentive";
+option go_package = "github.com/tessornetwork/nebula/x/incentive";
 
 // Msg defines the x/incentive module's Msg service.
 service Msg {

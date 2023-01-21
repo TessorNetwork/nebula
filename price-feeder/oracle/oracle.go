@@ -23,7 +23,7 @@ import (
 	"github.com/tessornetwork/nebula/price-feeder/oracle/provider"
 	"github.com/tessornetwork/nebula/price-feeder/oracle/types"
 	pfsync "github.com/tessornetwork/nebula/price-feeder/pkg/sync"
-	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+	oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 // We define tickerSleep as the minimum timeout between each oracle loop. We

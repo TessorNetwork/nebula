@@ -32,10 +32,10 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/tessornetwork/nebula/v3/app/params"
-	"github.com/tessornetwork/nebula/v3/x/leverage/fixtures"
-	leveragetypes "github.com/tessornetwork/nebula/v3/x/leverage/types"
-	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/app/params"
+	"github.com/tessornetwork/nebula/x/leverage/fixtures"
+	leveragetypes "github.com/tessornetwork/nebula/x/leverage/types"
+	oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 // DefaultConsensusParams defines the default Tendermint consensus params used

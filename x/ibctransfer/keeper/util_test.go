@@ -10,7 +10,7 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	nebulaapp "github.com/tessornetwork/nebula/app"
 )
 
 func SetupTestingApp() (ibctesting.TestingApp, map[string]json.RawMessage) {

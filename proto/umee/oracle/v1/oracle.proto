@@ -3,7 +3,7 @@ package nebula.oracle.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/tessornetwork/nebula/v3/x/oracle/types";
+option go_package = "github.com/tessornetwork/nebula/x/oracle/types";
 
 option (gogoproto.goproto_getters_all) = false;
 

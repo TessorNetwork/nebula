@@ -6,9 +6,9 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	evidencetypes "github.com/cosmos/cosmos-sdk/x/evidence/types"
 
-	appparams "github.com/tessornetwork/nebula/v3/app/params"
-	leveragetypes "github.com/tessornetwork/nebula/v3/x/leverage/types"
-	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
+	appparams "github.com/tessornetwork/nebula/app/params"
+	leveragetypes "github.com/tessornetwork/nebula/x/leverage/types"
+	oracletypes "github.com/tessornetwork/nebula/x/oracle/types"
 )
 
 // MaxMsgGasUsage defines the maximum gas allowed for an oracle transaction.

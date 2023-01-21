@@ -23,8 +23,8 @@ import (
 	tmjson "github.com/tendermint/tendermint/libs/json"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	"github.com/tessornetwork/nebula/v3/tests/util"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	"github.com/tessornetwork/nebula/tests/util"
 )
 
 // appStateFn returns the initial application state using a genesis file or

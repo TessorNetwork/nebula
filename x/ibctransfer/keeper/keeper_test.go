@@ -17,8 +17,8 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
-	"github.com/tessornetwork/nebula/v3/tests/util"
+	nebulaapp "github.com/tessornetwork/nebula/app"
+	"github.com/tessornetwork/nebula/tests/util"
 )
 
 func TestKeeperTestSuite(t *testing.T) {

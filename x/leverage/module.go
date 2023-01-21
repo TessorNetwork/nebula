@@ -17,10 +17,10 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/tessornetwork/nebula/v3/x/leverage/client/cli"
-	"github.com/tessornetwork/nebula/v3/x/leverage/keeper"
-	"github.com/tessornetwork/nebula/v3/x/leverage/simulation"
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/x/leverage/client/cli"
+	"github.com/tessornetwork/nebula/x/leverage/keeper"
+	"github.com/tessornetwork/nebula/x/leverage/simulation"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 var (

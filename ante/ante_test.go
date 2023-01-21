@@ -16,7 +16,7 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	nebulaapp "github.com/tessornetwork/nebula/app"
 )
 
 type IntegrationTestSuite struct {

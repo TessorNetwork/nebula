@@ -11,7 +11,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 
-	"github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/x/leverage/types"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

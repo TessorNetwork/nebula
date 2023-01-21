@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tessornetwork/nebula/v3/x/leverage/keeper"
+	"github.com/tessornetwork/nebula/x/leverage/keeper"
 )
 
 func TestComputeLiquidation(t *testing.T) {
