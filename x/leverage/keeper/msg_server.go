@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 
-	"github.com/umee-network/umee/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/v3/x/leverage/types"
 )
 
 var _ types.MsgServer = msgServer{}

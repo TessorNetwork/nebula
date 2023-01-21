@@ -19,8 +19,8 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	dbm "github.com/tendermint/tm-db"
 
-	umeeapp "github.com/umee-network/umee/v3/app"
-	appparams "github.com/umee-network/umee/v3/app/params"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
 )
 
 func init() {
@@ -64,18 +64,18 @@ func TestFullAppSimulation(t *testing.T) {
 		}
 	}
 
-	app := umeeapp.New(
+	app := nebulaapp.New(
 		logger,
 		db,
 		nil,
 		true,
 		map[int64]bool{},
-		umeeapp.DefaultNodeHome,
+		nebulaapp.DefaultNodeHome,
 		simapp.FlagPeriodValue,
-		umeeapp.MakeEncodingConfig(),
-		umeeapp.EmptyAppOptions{},
-		umeeapp.GetWasmEnabledProposals(),
-		umeeapp.EmptyWasmOpts,
+		nebulaapp.MakeEncodingConfig(),
+		nebulaapp.EmptyAppOptions{},
+		nebulaapp.GetWasmEnabledProposals(),
+		nebulaapp.EmptyWasmOpts,
 		fauxMerkleModeOpt,
 	)
 	require.Equal(t, appparams.Name, app.Name())
@@ -137,18 +137,18 @@ func TestAppStateDeterminism(t *testing.T) {
 			}
 
 			db := dbm.NewMemDB()
-			app := umeeapp.New(
+			app := nebulaapp.New(
 				logger,
 				db,
 				nil,
 				true,
 				map[int64]bool{},
-				umeeapp.DefaultNodeHome,
+				nebulaapp.DefaultNodeHome,
 				simapp.FlagPeriodValue,
-				umeeapp.MakeEncodingConfig(),
-				umeeapp.EmptyAppOptions{},
-				umeeapp.GetWasmEnabledProposals(),
-				umeeapp.EmptyWasmOpts,
+				nebulaapp.MakeEncodingConfig(),
+				nebulaapp.EmptyAppOptions{},
+				nebulaapp.GetWasmEnabledProposals(),
+				nebulaapp.EmptyWasmOpts,
 				interBlockCacheOpt(),
 			)
 
@@ -214,18 +214,18 @@ func BenchmarkFullAppSimulation(b *testing.B) {
 		}
 	}
 
-	app := umeeapp.New(
+	app := nebulaapp.New(
 		logger,
 		db,
 		nil,
 		true,
 		map[int64]bool{},
-		umeeapp.DefaultNodeHome,
+		nebulaapp.DefaultNodeHome,
 		simapp.FlagPeriodValue,
-		umeeapp.MakeEncodingConfig(),
-		umeeapp.EmptyAppOptions{},
-		umeeapp.GetWasmEnabledProposals(),
-		umeeapp.EmptyWasmOpts,
+		nebulaapp.MakeEncodingConfig(),
+		nebulaapp.EmptyAppOptions{},
+		nebulaapp.GetWasmEnabledProposals(),
+		nebulaapp.EmptyWasmOpts,
 		interBlockCacheOpt(),
 	)
 

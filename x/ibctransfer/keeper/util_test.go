@@ -10,26 +10,26 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	umeeapp "github.com/umee-network/umee/v3/app"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
 )
 
 func SetupTestingApp() (ibctesting.TestingApp, map[string]json.RawMessage) {
 	db := dbm.NewMemDB()
-	encConfig := umeeapp.MakeEncodingConfig()
-	app := umeeapp.New(
+	encConfig := nebulaapp.MakeEncodingConfig()
+	app := nebulaapp.New(
 		log.NewNopLogger(),
 		db,
 		nil,
 		true,
 		map[int64]bool{},
-		umeeapp.DefaultNodeHome,
+		nebulaapp.DefaultNodeHome,
 		5,
 		encConfig,
-		umeeapp.EmptyAppOptions{},
-		umeeapp.GetWasmEnabledProposals(),
-		umeeapp.EmptyWasmOpts,
+		nebulaapp.EmptyAppOptions{},
+		nebulaapp.GetWasmEnabledProposals(),
+		nebulaapp.EmptyWasmOpts,
 	)
-	genesisState := umeeapp.NewDefaultGenesisState(encConfig.Codec)
+	genesisState := nebulaapp.NewDefaultGenesisState(encConfig.Codec)
 
 	return app, genesisState
 }

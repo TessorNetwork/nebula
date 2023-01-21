@@ -114,23 +114,23 @@ import (
 	wasmclient "github.com/CosmWasm/wasmd/x/wasm/client"
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 
-	customante "github.com/umee-network/umee/v3/ante"
-	appparams "github.com/umee-network/umee/v3/app/params"
-	"github.com/umee-network/umee/v3/swagger"
-	"github.com/umee-network/umee/v3/util/genmap"
-	uibctransfer "github.com/umee-network/umee/v3/x/ibctransfer"
-	uibctransferkeeper "github.com/umee-network/umee/v3/x/ibctransfer/keeper"
-	"github.com/umee-network/umee/v3/x/leverage"
-	leveragekeeper "github.com/umee-network/umee/v3/x/leverage/keeper"
-	leveragetypes "github.com/umee-network/umee/v3/x/leverage/types"
-	"github.com/umee-network/umee/v3/x/oracle"
-	oraclekeeper "github.com/umee-network/umee/v3/x/oracle/keeper"
-	oracletypes "github.com/umee-network/umee/v3/x/oracle/types"
+	customante "github.com/tessornetwork/nebula/v3/ante"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/swagger"
+	"github.com/tessornetwork/nebula/v3/util/genmap"
+	uibctransfer "github.com/tessornetwork/nebula/v3/x/ibctransfer"
+	uibctransferkeeper "github.com/tessornetwork/nebula/v3/x/ibctransfer/keeper"
+	"github.com/tessornetwork/nebula/v3/x/leverage"
+	leveragekeeper "github.com/tessornetwork/nebula/v3/x/leverage/keeper"
+	leveragetypes "github.com/tessornetwork/nebula/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/v3/x/oracle"
+	oraclekeeper "github.com/tessornetwork/nebula/v3/x/oracle/keeper"
+	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 var (
-	_ CosmosApp               = (*UmeeApp)(nil)
-	_ servertypes.Application = (*UmeeApp)(nil)
+	_ CosmosApp               = (*NebulaApp)(nil)
+	_ servertypes.Application = (*NebulaApp)(nil)
 
 	// DefaultNodeHome defines the default home directory for the application
 	// daemon.
@@ -199,9 +199,9 @@ func init() {
 	}
 }
 
-// UmeeApp defines the ABCI application for the Umee network as an extension of
+// NebulaApp defines the ABCI application for the Nebula network as an extension of
 // the Cosmos SDK's BaseApp.
-type UmeeApp struct {
+type NebulaApp struct {
 	*baseapp.BaseApp
 
 	legacyAmino       *codec.LegacyAmino
@@ -284,7 +284,7 @@ func New(
 	wasmEnabledProposals []wasm.ProposalType,
 	wasmOpts []wasm.Option,
 	baseAppOptions ...func(*baseapp.BaseApp),
-) *UmeeApp {
+) *NebulaApp {
 	appCodec := encodingConfig.Codec
 	legacyAmino := encodingConfig.Amino
 	interfaceRegistry := encodingConfig.InterfaceRegistry
@@ -318,7 +318,7 @@ func New(
 	// 	tmos.Exit(err.Error())
 	// }
 
-	app := &UmeeApp{
+	app := &NebulaApp{
 		BaseApp:           bApp,
 		legacyAmino:       legacyAmino,
 		appCodec:          appCodec,
@@ -495,7 +495,7 @@ func New(
 	app.EvidenceKeeper = *evidenceKeeper
 
 	// Create an original ICS-20 transfer keeper and AppModule and then use it to
-	// created an Umee wrapped ICS-20 transfer keeper and AppModule.
+	// created an Nebula wrapped ICS-20 transfer keeper and AppModule.
 	ibcTransferKeeper := ibctransferkeeper.NewKeeper(
 		appCodec,
 		keys[ibctransfertypes.StoreKey],
@@ -749,7 +749,7 @@ func New(
 	return app
 }
 
-func (app *UmeeApp) setAnteHandler(txConfig client.TxConfig,
+func (app *NebulaApp) setAnteHandler(txConfig client.TxConfig,
 	wasmConfig *wasmtypes.WasmConfig, wasmStoreKey *storetypes.KVStoreKey,
 ) {
 	anteHandler, err := customante.NewAnteHandler(
@@ -773,7 +773,7 @@ func (app *UmeeApp) setAnteHandler(txConfig client.TxConfig,
 	app.SetAnteHandler(anteHandler)
 }
 
-func (app *UmeeApp) setPostHandler() {
+func (app *NebulaApp) setPostHandler() {
 	postHandler, err := posthandler.NewPostHandler(
 		posthandler.HandlerOptions{},
 	)
@@ -785,20 +785,20 @@ func (app *UmeeApp) setPostHandler() {
 }
 
 // Name returns the name of the App
-func (app *UmeeApp) Name() string { return app.BaseApp.Name() }
+func (app *NebulaApp) Name() string { return app.BaseApp.Name() }
 
-// BeginBlocker implements Umee's BeginBlock ABCI method.
-func (app *UmeeApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
+// BeginBlocker implements Nebula's BeginBlock ABCI method.
+func (app *NebulaApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
 	return app.mm.BeginBlock(ctx, req)
 }
 
-// EndBlocker implements Umee's EndBlock ABCI method.
-func (app *UmeeApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
+// EndBlocker implements Nebula's EndBlock ABCI method.
+func (app *NebulaApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
 	return app.mm.EndBlock(ctx, req)
 }
 
-// InitChainer implements Umee's InitChain ABCI method.
-func (app *UmeeApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
+// InitChainer implements Nebula's InitChain ABCI method.
+func (app *NebulaApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
 	var genesisState GenesisState
 	if err := json.Unmarshal(req.AppStateBytes, &genesisState); err != nil {
 		panic(fmt.Sprintf("failed to unmarshal genesis state: %v", err))
@@ -807,13 +807,13 @@ func (app *UmeeApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci
 	return app.mm.InitGenesis(ctx, app.appCodec, genesisState)
 }
 
-// LoadHeight loads a particular height via Umee's BaseApp.
-func (app *UmeeApp) LoadHeight(height int64) error {
+// LoadHeight loads a particular height via Nebula's BaseApp.
+func (app *NebulaApp) LoadHeight(height int64) error {
 	return app.LoadVersion(height)
 }
 
-// ModuleAccountAddrs returns all of Umee's module account addresses.
-func (app *UmeeApp) ModuleAccountAddrs() map[string]bool {
+// ModuleAccountAddrs returns all of Nebula's module account addresses.
+func (app *NebulaApp) ModuleAccountAddrs() map[string]bool {
 	modAccAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		modAccAddrs[authtypes.NewModuleAddress(acc).String()] = true
@@ -822,65 +822,65 @@ func (app *UmeeApp) ModuleAccountAddrs() map[string]bool {
 	return modAccAddrs
 }
 
-// LegacyAmino returns Umee's amino codec.
+// LegacyAmino returns Nebula's amino codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *UmeeApp) LegacyAmino() *codec.LegacyAmino {
+func (app *NebulaApp) LegacyAmino() *codec.LegacyAmino {
 	return app.legacyAmino
 }
 
-// AppCodec returns Umee's app codec.
+// AppCodec returns Nebula's app codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *UmeeApp) AppCodec() codec.Codec {
+func (app *NebulaApp) AppCodec() codec.Codec {
 	return app.appCodec
 }
 
-// InterfaceRegistry returns Umee's InterfaceRegistry.
-func (app *UmeeApp) InterfaceRegistry() types.InterfaceRegistry {
+// InterfaceRegistry returns Nebula's InterfaceRegistry.
+func (app *NebulaApp) InterfaceRegistry() types.InterfaceRegistry {
 	return app.interfaceRegistry
 }
 
 // GetKey returns the KVStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *UmeeApp) GetKey(storeKey string) *storetypes.KVStoreKey {
+func (app *NebulaApp) GetKey(storeKey string) *storetypes.KVStoreKey {
 	return app.keys[storeKey]
 }
 
 // GetTKey returns the TransientStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *UmeeApp) GetTKey(storeKey string) *storetypes.TransientStoreKey {
+func (app *NebulaApp) GetTKey(storeKey string) *storetypes.TransientStoreKey {
 	return app.tkeys[storeKey]
 }
 
 // GetMemKey returns the MemStoreKey for the provided mem key.
 //
 // NOTE: This is solely used for testing purposes.
-func (app *UmeeApp) GetMemKey(storeKey string) *storetypes.MemoryStoreKey {
+func (app *NebulaApp) GetMemKey(storeKey string) *storetypes.MemoryStoreKey {
 	return app.memKeys[storeKey]
 }
 
 // GetSubspace returns a param subspace for a given module name.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *UmeeApp) GetSubspace(moduleName string) paramstypes.Subspace {
+func (app *NebulaApp) GetSubspace(moduleName string) paramstypes.Subspace {
 	subspace, _ := app.ParamsKeeper.GetSubspace(moduleName)
 	return subspace
 }
 
 // SimulationManager returns the application's SimulationManager.
-func (app *UmeeApp) SimulationManager() *module.SimulationManager {
+func (app *NebulaApp) SimulationManager() *module.SimulationManager {
 	return app.sm
 }
 
 // RegisterAPIRoutes registers all application module routes with the provided
 //
 // API server.
-func (app *UmeeApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
+func (app *NebulaApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
 	clientCtx := apiSvr.ClientCtx
 	// Register new tx routes from grpc-gateway.
 	authtx.RegisterGRPCGatewayRoutes(clientCtx, apiSvr.GRPCGatewayRouter)
@@ -900,12 +900,12 @@ func (app *UmeeApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APICo
 }
 
 // RegisterTxService implements the Application.RegisterTxService method.
-func (app *UmeeApp) RegisterTxService(clientCtx client.Context) {
+func (app *NebulaApp) RegisterTxService(clientCtx client.Context) {
 	authtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.BaseApp.Simulate, app.interfaceRegistry)
 }
 
 // RegisterTendermintService implements the Application.RegisterTendermintService method.
-func (app *UmeeApp) RegisterTendermintService(clientCtx client.Context) {
+func (app *NebulaApp) RegisterTendermintService(clientCtx client.Context) {
 	tmservice.RegisterTendermintService(
 		clientCtx,
 		app.BaseApp.GRPCQueryRouter(),
@@ -914,32 +914,32 @@ func (app *UmeeApp) RegisterTendermintService(clientCtx client.Context) {
 	)
 }
 
-func (app *UmeeApp) RegisterNodeService(clientCtx client.Context) {
+func (app *NebulaApp) RegisterNodeService(clientCtx client.Context) {
 	nodeservice.RegisterNodeService(clientCtx, app.GRPCQueryRouter())
 }
 
 // GetBaseApp is used solely for testing purposes.
-func (app *UmeeApp) GetBaseApp() *baseapp.BaseApp {
+func (app *NebulaApp) GetBaseApp() *baseapp.BaseApp {
 	return app.BaseApp
 }
 
 // GetStakingKeeper is used solely for testing purposes.
-func (app *UmeeApp) GetStakingKeeper() ibctesting.StakingKeeper {
+func (app *NebulaApp) GetStakingKeeper() ibctesting.StakingKeeper {
 	return *app.StakingKeeper
 }
 
 // GetIBCKeeper is used solely for testing purposes.
-func (app *UmeeApp) GetIBCKeeper() *ibckeeper.Keeper {
+func (app *NebulaApp) GetIBCKeeper() *ibckeeper.Keeper {
 	return app.IBCKeeper
 }
 
 // GetScopedIBCKeeper is used solely for testing purposes.
-func (app *UmeeApp) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
+func (app *NebulaApp) GetScopedIBCKeeper() capabilitykeeper.ScopedKeeper {
 	return app.ScopedIBCKeeper
 }
 
 // GetTxConfig is used solely for testing purposes.
-func (app *UmeeApp) GetTxConfig() client.TxConfig {
+func (app *NebulaApp) GetTxConfig() client.TxConfig {
 	return app.txConfig
 }
 

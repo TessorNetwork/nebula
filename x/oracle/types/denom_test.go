@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/umee-network/umee/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 func TestDenomString(t *testing.T) {
@@ -13,8 +13,8 @@ func TestDenomString(t *testing.T) {
 		expectedStr string
 	}{
 		{
-			denom:       types.DenomUmee,
-			expectedStr: "base_denom: uumee\nsymbol_denom: umee\nexponent: 6\n",
+			denom:       types.DenomNebula,
+			expectedStr: "base_denom: unebula\nsymbol_denom: nebula\nexponent: 6\n",
 		},
 		{
 			denom:       types.DenomLuna,
@@ -38,12 +38,12 @@ func TestDenomEqual(t *testing.T) {
 		equal         bool
 	}{
 		{
-			denom:         types.DenomUmee,
-			denomCompared: types.DenomUmee,
+			denom:         types.DenomNebula,
+			denomCompared: types.DenomNebula,
 			equal:         true,
 		},
 		{
-			denom:         types.DenomUmee,
+			denom:         types.DenomNebula,
 			denomCompared: types.DenomLuna,
 			equal:         false,
 		},
@@ -75,8 +75,8 @@ func TestDenomListString(t *testing.T) {
 		expectedStr string
 	}{
 		{
-			denomList:   types.DenomList{types.DenomUmee},
-			expectedStr: "base_denom: uumee\nsymbol_denom: umee\nexponent: 6",
+			denomList:   types.DenomList{types.DenomNebula},
+			expectedStr: "base_denom: unebula\nsymbol_denom: nebula\nexponent: 6",
 		},
 		{
 			denomList:   types.DenomList{types.DenomAtom, types.DenomLuna},
@@ -96,27 +96,27 @@ func TestDenomListContains(t *testing.T) {
 		symbolInList bool
 	}{
 		{
-			denomList:    types.DenomList{types.DenomUmee},
-			denomSymbol:  types.DenomUmee.SymbolDenom,
+			denomList:    types.DenomList{types.DenomNebula},
+			denomSymbol:  types.DenomNebula.SymbolDenom,
 			symbolInList: true,
 		},
 		{
-			denomList:    types.DenomList{types.DenomUmee},
+			denomList:    types.DenomList{types.DenomNebula},
 			denomSymbol:  types.DenomLuna.SymbolDenom,
 			symbolInList: false,
 		},
 		{
-			denomList:    types.DenomList{types.DenomUmee, types.DenomAtom},
+			denomList:    types.DenomList{types.DenomNebula, types.DenomAtom},
 			denomSymbol:  types.DenomLuna.SymbolDenom,
 			symbolInList: false,
 		},
 		{
-			denomList:    types.DenomList{types.DenomUmee, types.DenomAtom},
+			denomList:    types.DenomList{types.DenomNebula, types.DenomAtom},
 			denomSymbol:  types.DenomAtom.SymbolDenom,
 			symbolInList: true,
 		},
 		{
-			denomList:    types.DenomList{types.DenomUmee, types.DenomAtom, types.DenomLuna},
+			denomList:    types.DenomList{types.DenomNebula, types.DenomAtom, types.DenomLuna},
 			denomSymbol:  types.DenomLuna.SymbolDenom,
 			symbolInList: true,
 		},

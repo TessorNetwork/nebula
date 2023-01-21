@@ -16,19 +16,19 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	umeeapp "github.com/umee-network/umee/v3/app"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
 )
 
 type IntegrationTestSuite struct {
 	suite.Suite
-	app       *umeeapp.UmeeApp
+	app       *nebulaapp.NebulaApp
 	ctx       sdk.Context
 	clientCtx client.Context
 	txBuilder client.TxBuilder
 }
 
 func (s *IntegrationTestSuite) SetupTest() {
-	app := umeeapp.Setup(s.T(), false, 1)
+	app := nebulaapp.Setup(s.T(), false, 1)
 	ctx := app.BaseApp.NewContext(false, tmproto.Header{
 		ChainID: fmt.Sprintf("test-chain-%s", tmrand.Str(4)),
 		Height:  1,

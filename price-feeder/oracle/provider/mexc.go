@@ -11,9 +11,9 @@ import (
 
 	"github.com/gorilla/websocket"
 	"github.com/rs/zerolog"
-	"github.com/umee-network/umee/price-feeder/oracle/types"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/types"
 
-	"github.com/umee-network/umee/v3/util/coin"
+	"github.com/tessornetwork/nebula/v3/util/coin"
 )
 
 const (
@@ -322,7 +322,7 @@ func (p *MexcProvider) setSubscribedPairs(cps ...types.CurrencyPair) {
 }
 
 // GetAvailablePairs returns all pairs to which the provider can subscribe.
-// ex.: map["ATOMUSDT" => {}, "UMEEUSDC" => {}].
+// ex.: map["ATOMUSDT" => {}, "NEBULAUSDC" => {}].
 func (p *MexcProvider) GetAvailablePairs() (map[string]struct{}, error) {
 	resp, err := http.Get(p.endpoints.Rest + mexcRestPath)
 	if err != nil {

@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
-	"github.com/umee-network/umee/price-feeder/oracle/types"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/types"
 )
 
 func TestCoinbaseProvider_GetTickerPrices(t *testing.T) {
@@ -41,7 +41,7 @@ func TestCoinbaseProvider_GetTickerPrices(t *testing.T) {
 
 	t.Run("valid_request_multi_ticker", func(t *testing.T) {
 		lastPriceAtom := "34.69000000"
-		lastPriceUmee := "41.35000000"
+		lastPriceNebula := "41.35000000"
 		volume := "2396974.02000000"
 
 		tickerMap := map[string]CoinbaseTicker{}
@@ -50,22 +50,22 @@ func TestCoinbaseProvider_GetTickerPrices(t *testing.T) {
 			Volume: volume,
 		}
 
-		tickerMap["UMEE-USDT"] = CoinbaseTicker{
-			Price:  lastPriceUmee,
+		tickerMap["NEBULA-USDT"] = CoinbaseTicker{
+			Price:  lastPriceNebula,
 			Volume: volume,
 		}
 
 		p.tickers = tickerMap
 		prices, err := p.GetTickerPrices(
 			types.CurrencyPair{Base: "ATOM", Quote: "USDT"},
-			types.CurrencyPair{Base: "UMEE", Quote: "USDT"},
+			types.CurrencyPair{Base: "NEBULA", Quote: "USDT"},
 		)
 		require.NoError(t, err)
 		require.Len(t, prices, 2)
 		require.Equal(t, sdk.MustNewDecFromStr(lastPriceAtom), prices["ATOMUSDT"].Price)
 		require.Equal(t, sdk.MustNewDecFromStr(volume), prices["ATOMUSDT"].Volume)
-		require.Equal(t, sdk.MustNewDecFromStr(lastPriceUmee), prices["UMEEUSDT"].Price)
-		require.Equal(t, sdk.MustNewDecFromStr(volume), prices["UMEEUSDT"].Volume)
+		require.Equal(t, sdk.MustNewDecFromStr(lastPriceNebula), prices["NEBULAUSDT"].Price)
+		require.Equal(t, sdk.MustNewDecFromStr(volume), prices["NEBULAUSDT"].Volume)
 	})
 
 	t.Run("invalid_request_invalid_ticker", func(t *testing.T) {

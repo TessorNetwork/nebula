@@ -18,7 +18,7 @@ verbose_cors = true
 write_timeout = "20s"
 
 [[currency_pairs]]
-base = "UMEE"
+base = "NEBULA"
 providers = [
   "mock",
 ]
@@ -46,18 +46,18 @@ providers = [
 quote = "USD"
 
 [account]
-address = '$UMEE_E2E_PRICE_FEEDER_ADDRESS'
-chain_id = "umee-local-testnet"
-validator = '$UMEE_E2E_PRICE_FEEDER_VALIDATOR'
+address = '$NEBULA_E2E_PRICE_FEEDER_ADDRESS'
+chain_id = "nebula-local-testnet"
+validator = '$NEBULA_E2E_PRICE_FEEDER_VALIDATOR'
 
 [keyring]
 backend = "test"
-dir = '$UMEE_E2E_UMEE_VAL_KEY_DIR'
+dir = '$NEBULA_E2E_NEBULA_VAL_KEY_DIR'
 
 [rpc]
-grpc_endpoint = 'tcp://$UMEE_E2E_UMEE_VAL_HOST:9090'
+grpc_endpoint = 'tcp://$NEBULA_E2E_NEBULA_VAL_HOST:9090'
 rpc_timeout = "100ms"
-tmrpc_endpoint = 'http://$UMEE_E2E_UMEE_VAL_HOST:26657'
+tmrpc_endpoint = 'http://$NEBULA_E2E_NEBULA_VAL_HOST:26657'
 
 [telemetry]
 service-name = "price-feeder"
@@ -66,7 +66,7 @@ enable-hostname = true
 enable-hostname-label = true
 enable-service-label = true
 type = "prometheus"
-global-labels = [["chain-id", "umee-local-testnet"]]
+global-labels = [["chain-id", "nebula-local-testnet"]]
 EOF
 
 # start price-feeder

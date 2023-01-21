@@ -6,7 +6,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	appparams "github.com/umee-network/umee/v3/app/params"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
 )
 
 const (
@@ -151,10 +151,10 @@ func (t Token) AssertNotBlacklisted() error {
 	return nil
 }
 
-func defaultUmeeToken() Token {
+func defaultNebulaToken() Token {
 	return Token{
 		BaseDenom:       appparams.BondDenom,
-		SymbolDenom:     "UMEE",
+		SymbolDenom:     "NEBULA",
 		Exponent:        6,
 		EnableMsgSupply: true,
 		EnableMsgBorrow: true,
@@ -210,7 +210,7 @@ func defaultAtomToken() Token {
 
 func DefaultRegistry() []Token {
 	return []Token{
-		defaultUmeeToken(),
+		defaultNebulaToken(),
 		defaultAtomToken(),
 	}
 }

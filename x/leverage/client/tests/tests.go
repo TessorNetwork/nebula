@@ -3,10 +3,10 @@ package tests
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	appparams "github.com/umee-network/umee/v3/app/params"
-	"github.com/umee-network/umee/v3/x/leverage/client/cli"
-	"github.com/umee-network/umee/v3/x/leverage/fixtures"
-	"github.com/umee-network/umee/v3/x/leverage/types"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/x/leverage/client/cli"
+	"github.com/tessornetwork/nebula/v3/x/leverage/fixtures"
+	"github.com/tessornetwork/nebula/v3/x/leverage/types"
 )
 
 func (s *IntegrationTestSuite) TestInvalidQueries() {
@@ -46,7 +46,7 @@ func (s *IntegrationTestSuite) TestInvalidQueries() {
 			cli.GetCmdQueryMaxWithdraw(),
 			[]string{
 				"xyz",
-				"uumee",
+				"unebula",
 			},
 			true,
 			nil,
@@ -95,7 +95,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 			false,
 			&types.QueryMarketSummaryResponse{},
 			&types.QueryMarketSummaryResponse{
-				SymbolDenom:        "UMEE",
+				SymbolDenom:        "NEBULA",
 				Exponent:           6,
 				OraclePrice:        &oracleSymbolPrice,
 				UTokenExchangeRate: sdk.OneDec(),
@@ -135,13 +135,13 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 			cli.GetCmdQueryMaxWithdraw(),
 			[]string{
 				val.Address.String(),
-				"uumee",
+				"unebula",
 			},
 			false,
 			&types.QueryMaxWithdrawResponse{},
 			&types.QueryMaxWithdrawResponse{
-				Tokens:  sdk.NewCoin("uumee", sdk.ZeroInt()),
-				UTokens: sdk.NewCoin("u/uumee", sdk.ZeroInt()),
+				Tokens:  sdk.NewCoin("unebula", sdk.ZeroInt()),
+				UTokens: sdk.NewCoin("u/unebula", sdk.ZeroInt()),
 			},
 		},
 	}
@@ -150,7 +150,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"supply",
 		cli.GetCmdSupply(),
 		[]string{
-			"700uumee",
+			"700unebula",
 		},
 		nil,
 	}
@@ -159,7 +159,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"add collateral",
 		cli.GetCmdCollateralize(),
 		[]string{
-			"700u/uumee",
+			"700u/unebula",
 		},
 		nil,
 	}
@@ -168,7 +168,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"supply collateral",
 		cli.GetCmdSupplyCollateral(),
 		[]string{
-			"300uumee",
+			"300unebula",
 		},
 		nil,
 	}
@@ -177,7 +177,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"borrow",
 		cli.GetCmdBorrow(),
 		[]string{
-			"249uumee", // produces a borrowed amount of 250 due to rounding
+			"249unebula", // produces a borrowed amount of 250 due to rounding
 		},
 		nil,
 	}
@@ -187,8 +187,8 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		cli.GetCmdLiquidate(),
 		[]string{
 			val.Address.String(),
-			"5uumee", // borrower liquidates itself, reduces borrow amount and collateral by 5
-			"uumee",
+			"5unebula", // borrower liquidates itself, reduces borrow amount and collateral by 5
+			"unebula",
 		},
 		nil,
 	}
@@ -197,7 +197,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"repay",
 		cli.GetCmdRepay(),
 		[]string{
-			"250uumee", // repays only the remaining borrowed balance, reduced automatically from 250
+			"250unebula", // repays only the remaining borrowed balance, reduced automatically from 250
 		},
 		nil,
 	}
@@ -206,7 +206,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"remove collateral",
 		cli.GetCmdDecollateralize(),
 		[]string{
-			"895u/uumee", // 100 u/uumee will remain
+			"895u/unebula", // 100 u/unebula will remain
 		},
 		nil,
 	}
@@ -215,7 +215,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"withdraw",
 		cli.GetCmdWithdraw(),
 		[]string{
-			"795u/uumee", // 200 u/uumee will remain
+			"795u/unebula", // 200 u/unebula will remain
 		},
 		nil,
 	}
@@ -224,7 +224,7 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 		"withdraw max",
 		cli.GetCmdMaxWithdraw(),
 		[]string{
-			"uumee",
+			"unebula",
 		},
 		nil,
 	}
@@ -259,9 +259,9 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 			false,
 			&types.QueryAccountSummaryResponse{},
 			&types.QueryAccountSummaryResponse{
-				// This result is umee's oracle exchange rate from
+				// This result is nebula's oracle exchange rate from
 				// app/test_helpers.go/IntegrationTestNetworkConfig
-				// times the amount of umee, and then times params
+				// times the amount of nebula, and then times params
 				// (1000 / 1000000) * 34.21 = 0.03421
 				SuppliedValue: sdk.MustNewDecFromStr("0.03421"),
 				// (1000 / 1000000) * 34.21 = 0.03421
@@ -279,13 +279,13 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 			cli.GetCmdQueryMaxWithdraw(),
 			[]string{
 				val.Address.String(),
-				"uumee",
+				"unebula",
 			},
 			false,
 			&types.QueryMaxWithdrawResponse{},
 			&types.QueryMaxWithdrawResponse{
-				Tokens:  sdk.NewCoin("uumee", sdk.ZeroInt()),
-				UTokens: sdk.NewCoin("u/uumee", sdk.ZeroInt()),
+				Tokens:  sdk.NewCoin("unebula", sdk.ZeroInt()),
+				UTokens: sdk.NewCoin("u/unebula", sdk.ZeroInt()),
 			},
 		},
 	}
@@ -314,13 +314,13 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 			cli.GetCmdQueryMaxWithdraw(),
 			[]string{
 				val.Address.String(),
-				"uumee",
+				"unebula",
 			},
 			false,
 			&types.QueryMaxWithdrawResponse{},
 			&types.QueryMaxWithdrawResponse{
-				Tokens:  sdk.NewCoin("uumee", sdk.NewInt(201)),
-				UTokens: sdk.NewCoin("u/uumee", sdk.NewInt(200)),
+				Tokens:  sdk.NewCoin("unebula", sdk.NewInt(201)),
+				UTokens: sdk.NewCoin("u/unebula", sdk.NewInt(200)),
 			},
 		},
 	}
@@ -346,13 +346,13 @@ func (s *IntegrationTestSuite) TestLeverageScenario() {
 			cli.GetCmdQueryMaxWithdraw(),
 			[]string{
 				val.Address.String(),
-				"uumee",
+				"unebula",
 			},
 			false,
 			&types.QueryMaxWithdrawResponse{},
 			&types.QueryMaxWithdrawResponse{
-				Tokens:  sdk.NewCoin("uumee", sdk.ZeroInt()),
-				UTokens: sdk.NewCoin("u/uumee", sdk.ZeroInt()),
+				Tokens:  sdk.NewCoin("unebula", sdk.ZeroInt()),
+				UTokens: sdk.NewCoin("u/unebula", sdk.ZeroInt()),
 			},
 		},
 	}

@@ -6,9 +6,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/crypto/secp256k1"
 
-	appparams "github.com/umee-network/umee/v3/app/params"
-	"github.com/umee-network/umee/v3/x/oracle/keeper"
-	"github.com/umee-network/umee/v3/x/oracle/types"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/x/oracle/keeper"
+	"github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 func (s *IntegrationTestSuite) TestQuerier_ActiveExchangeRates() {
@@ -204,14 +204,14 @@ func (s *IntegrationTestSuite) TestQuerier_AggregateVotesAppendVotes() {
 
 func (s *IntegrationTestSuite) TestQuerier_Medians() {
 	atomMedian := sdk.DecCoin{Denom: "atom", Amount: sdk.MustNewDecFromStr("49.99")}
-	umeeMedian := sdk.DecCoin{Denom: "umee", Amount: sdk.MustNewDecFromStr("6541.48")}
+	nebulaMedian := sdk.DecCoin{Denom: "nebula", Amount: sdk.MustNewDecFromStr("6541.48")}
 
 	s.app.OracleKeeper.SetMedian(s.ctx, atomMedian.Denom, atomMedian.Amount)
-	s.app.OracleKeeper.SetMedian(s.ctx, umeeMedian.Denom, umeeMedian.Amount)
+	s.app.OracleKeeper.SetMedian(s.ctx, nebulaMedian.Denom, nebulaMedian.Amount)
 
 	res, err := s.queryClient.Medians(s.ctx.Context(), &types.QueryMedians{})
 	s.Require().NoError(err)
-	s.Require().Equal(res.Medians, sdk.NewDecCoins(atomMedian, umeeMedian))
+	s.Require().Equal(res.Medians, sdk.NewDecCoins(atomMedian, nebulaMedian))
 
 	res, err = s.queryClient.Medians(s.ctx.Context(), &types.QueryMedians{Denom: atomMedian.Denom})
 	s.Require().NoError(err)
@@ -220,14 +220,14 @@ func (s *IntegrationTestSuite) TestQuerier_Medians() {
 
 func (s *IntegrationTestSuite) TestQuerier_MedianDeviations() {
 	atomMedianDeviation := sdk.DecCoin{Denom: "atom", Amount: sdk.MustNewDecFromStr("39.99")}
-	umeeMedianDeviation := sdk.DecCoin{Denom: "umee", Amount: sdk.MustNewDecFromStr("9541.48")}
+	nebulaMedianDeviation := sdk.DecCoin{Denom: "nebula", Amount: sdk.MustNewDecFromStr("9541.48")}
 
 	s.app.OracleKeeper.SetMedianDeviation(s.ctx, atomMedianDeviation.Denom, atomMedianDeviation.Amount)
-	s.app.OracleKeeper.SetMedianDeviation(s.ctx, umeeMedianDeviation.Denom, umeeMedianDeviation.Amount)
+	s.app.OracleKeeper.SetMedianDeviation(s.ctx, nebulaMedianDeviation.Denom, nebulaMedianDeviation.Amount)
 
 	res, err := s.queryClient.MedianDeviations(s.ctx.Context(), &types.QueryMedianDeviations{})
 	s.Require().NoError(err)
-	s.Require().Equal(res.MedianDeviations, sdk.NewDecCoins(atomMedianDeviation, umeeMedianDeviation))
+	s.Require().Equal(res.MedianDeviations, sdk.NewDecCoins(atomMedianDeviation, nebulaMedianDeviation))
 
 	res, err = s.queryClient.MedianDeviations(s.ctx.Context(), &types.QueryMedianDeviations{Denom: atomMedianDeviation.Denom})
 	s.Require().NoError(err)

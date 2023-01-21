@@ -32,14 +32,14 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/umee-network/umee/v3/app/params"
-	"github.com/umee-network/umee/v3/x/leverage/fixtures"
-	leveragetypes "github.com/umee-network/umee/v3/x/leverage/types"
-	oracletypes "github.com/umee-network/umee/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/x/leverage/fixtures"
+	leveragetypes "github.com/tessornetwork/nebula/v3/x/leverage/types"
+	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 // DefaultConsensusParams defines the default Tendermint consensus params used
-// in UmeeApp testing.
+// in NebulaApp testing.
 var DefaultConsensusParams = &abci.ConsensusParams{
 	Block: &abci.BlockParams{
 		MaxBytes: 200000,
@@ -61,7 +61,7 @@ type EmptyAppOptions struct{}
 
 func (EmptyAppOptions) Get(o string) interface{} { return nil }
 
-func Setup(t *testing.T, isCheckTx bool, invCheckPeriod uint) *UmeeApp {
+func Setup(t *testing.T, isCheckTx bool, invCheckPeriod uint) *NebulaApp {
 	t.Helper()
 
 	privVal := mock.NewPV()
@@ -93,7 +93,7 @@ func SetupWithGenesisValSet(
 	valSet *tmtypes.ValidatorSet,
 	genAccs []authtypes.GenesisAccount,
 	balances ...banktypes.Balance,
-) *UmeeApp {
+) *NebulaApp {
 	t.Helper()
 
 	app, genesisState := setup(true, 5)
@@ -210,7 +210,7 @@ func GenesisStateWithValSet(codec codec.Codec, genesisState map[string]json.RawM
 	return genesisState, nil
 }
 
-func setup(withGenesis bool, invCheckPeriod uint) (*UmeeApp, GenesisState) {
+func setup(withGenesis bool, invCheckPeriod uint) (*NebulaApp, GenesisState) {
 	db := dbm.NewMemDB()
 	encCdc := MakeEncodingConfig()
 	app := New(
@@ -323,12 +323,12 @@ type GenerateAccountStrategy func(int) []sdk.AccAddress
 
 // AddTestAddrsIncremental constructs and returns accNum amount of accounts with an
 // initial balance of accAmt in random order
-func AddTestAddrsIncremental(app *UmeeApp, ctx sdk.Context, accNum int, accAmt math.Int) []sdk.AccAddress {
+func AddTestAddrsIncremental(app *NebulaApp, ctx sdk.Context, accNum int, accAmt math.Int) []sdk.AccAddress {
 	return addTestAddrs(app, ctx, accNum, accAmt, createIncrementalAccounts)
 }
 
 func addTestAddrs(
-	app *UmeeApp, ctx sdk.Context, accNum int,
+	app *NebulaApp, ctx sdk.Context, accNum int,
 	accAmt math.Int, strategy GenerateAccountStrategy,
 ) []sdk.AccAddress {
 	testAddrs := strategy(accNum)
@@ -385,7 +385,7 @@ func createIncrementalAccounts(accNum int) []sdk.AccAddress {
 	return addresses
 }
 
-func initAccountWithCoins(app *UmeeApp, ctx sdk.Context, addr sdk.AccAddress, coins sdk.Coins) {
+func initAccountWithCoins(app *NebulaApp, ctx sdk.Context, addr sdk.AccAddress, coins sdk.Coins) {
 	err := app.BankKeeper.MintCoins(ctx, minttypes.ModuleName, coins)
 	if err != nil {
 		panic(err)

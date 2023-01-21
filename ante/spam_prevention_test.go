@@ -6,8 +6,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/umee-network/umee/v3/ante"
-	oracletypes "github.com/umee-network/umee/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/v3/ante"
+	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 func (suite *IntegrationTestSuite) TestOracleSpam() {

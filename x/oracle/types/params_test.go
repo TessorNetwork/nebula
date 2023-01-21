@@ -72,12 +72,12 @@ func TestValidateAcceptList(t *testing.T) {
 	require.ErrorContains(t, err, "oracle parameter AcceptList Denom must have BaseDenom")
 
 	err = validateAcceptList(DenomList{
-		{BaseDenom: DenomUmee.BaseDenom, SymbolDenom: ""},
+		{BaseDenom: DenomNebula.BaseDenom, SymbolDenom: ""},
 	})
 	require.ErrorContains(t, err, "oracle parameter AcceptList Denom must have SymbolDenom")
 
 	err = validateAcceptList(DenomList{
-		{BaseDenom: DenomUmee.BaseDenom, SymbolDenom: DenomUmee.SymbolDenom},
+		{BaseDenom: DenomNebula.BaseDenom, SymbolDenom: DenomNebula.SymbolDenom},
 	})
 	require.Nil(t, err)
 }
@@ -131,12 +131,12 @@ func TestValidateHistoricAcceptList(t *testing.T) {
 	require.ErrorContains(t, err, "oracle parameter HistoricAcceptList Denom must have BaseDenom")
 
 	err = validateHistoricAcceptList(DenomList{
-		{BaseDenom: DenomUmee.BaseDenom, SymbolDenom: ""},
+		{BaseDenom: DenomNebula.BaseDenom, SymbolDenom: ""},
 	})
 	require.ErrorContains(t, err, "oracle parameter HistoricAcceptList Denom must have SymbolDenom")
 
 	err = validateHistoricAcceptList(DenomList{
-		{BaseDenom: DenomUmee.BaseDenom, SymbolDenom: DenomUmee.SymbolDenom},
+		{BaseDenom: DenomNebula.BaseDenom, SymbolDenom: DenomNebula.SymbolDenom},
 	})
 	require.Nil(t, err)
 }

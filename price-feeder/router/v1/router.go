@@ -10,9 +10,9 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rs/zerolog"
 
-	"github.com/umee-network/umee/price-feeder/config"
-	"github.com/umee-network/umee/price-feeder/pkg/httputil"
-	"github.com/umee-network/umee/price-feeder/router/middleware"
+	"github.com/tessornetwork/nebula/price-feeder/config"
+	"github.com/tessornetwork/nebula/price-feeder/pkg/httputil"
+	"github.com/tessornetwork/nebula/price-feeder/router/middleware"
 )
 
 const (

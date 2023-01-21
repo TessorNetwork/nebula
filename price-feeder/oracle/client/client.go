@@ -21,12 +21,12 @@ import (
 	"github.com/rs/zerolog"
 	rpchttp "github.com/tendermint/tendermint/rpc/client/http"
 	tmjsonclient "github.com/tendermint/tendermint/rpc/jsonrpc/client"
-	umeeapp "github.com/umee-network/umee/v3/app"
-	umeeparams "github.com/umee-network/umee/v3/app/params"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	nebulaparams "github.com/tessornetwork/nebula/v3/app/params"
 )
 
 type (
-	// OracleClient defines a structure that interfaces with the Umee node.
+	// OracleClient defines a structure that interfaces with the Nebula node.
 	OracleClient struct {
 		Logger              zerolog.Logger
 		ChainID             string
@@ -39,7 +39,7 @@ type (
 		OracleAddrString    string
 		ValidatorAddr       sdk.ValAddress
 		ValidatorAddrString string
-		Encoding            umeeparams.EncodingConfig
+		Encoding            nebulaparams.EncodingConfig
 		GasPrices           string
 		GasAdjustment       float64
 		GRPCEndpoint        string
@@ -84,7 +84,7 @@ func NewOracleClient(
 		OracleAddrString:    oracleAddrString,
 		ValidatorAddr:       sdk.ValAddress(validatorAddrString),
 		ValidatorAddrString: validatorAddrString,
-		Encoding:            umeeapp.MakeEncodingConfig(),
+		Encoding:            nebulaapp.MakeEncodingConfig(),
 		GasAdjustment:       gasAdjustment,
 		GRPCEndpoint:        grpcEndpoint,
 	}

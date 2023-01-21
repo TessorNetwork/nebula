@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/umee-network/umee/price-feeder/oracle/provider"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/provider"
 )
 
 type (

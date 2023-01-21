@@ -1,4 +1,4 @@
-module github.com/umee-network/umee/v3
+module github.com/tessornetwork/nebula/v3
 
 go 1.19
 

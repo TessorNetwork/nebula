@@ -1,8 +1,8 @@
 package integration
 
 import (
-	"github.com/umee-network/umee/price-feeder/oracle/provider"
-	"github.com/umee-network/umee/price-feeder/oracle/types"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/provider"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/types"
 )
 
 var ProviderAndCurrencyPairsFixture = []struct {

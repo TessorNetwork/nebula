@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 
-# Download the umeed binary with the same version as mainnet and unpack it
+# Download the nebud binary with the same version as mainnet and unpack it
 
-# USAGE: ./download-mainnet-umeed.sh
+# USAGE: ./download-mainnet-nebud.sh
 
 is_macos() {
   [[ "$OSTYPE" == "darwin"* ]]
@@ -14,41 +14,41 @@ CWD="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 MAINNET_VERSION=${MAINNET_VERSION:-"v3.0.2"}
 
 download_mainnet_binary(){
-  # Checks for the umeed v1 file
-  if [ ! -f "$UMEED_BIN_MAINNET" ]; then
-    echo "$UMEED_BIN_MAINNET doesn't exist"
+  # Checks for the nebud v1 file
+  if [ ! -f "$NEBUD_BIN_MAINNET" ]; then
+    echo "$NEBUD_BIN_MAINNET doesn't exist"
 
-    if [ -z $UMEED_BIN_MAINNET_URL_TARBALL ]; then
-      echo You need to set the UMEED_BIN_MAINNET_URL_TARBALL variable
+    if [ -z $NEBUD_BIN_MAINNET_URL_TARBALL ]; then
+      echo You need to set the NEBUD_BIN_MAINNET_URL_TARBALL variable
       exit 1
     fi
 
-    UMEED_RELEASES_PATH=$CWD/umeed-releases
-    mkdir -p $UMEED_RELEASES_PATH
-    wget -c $UMEED_BIN_MAINNET_URL_TARBALL -O - | tar -xz -C $UMEED_RELEASES_PATH
+    NEBUD_RELEASES_PATH=$CWD/nebud-releases
+    mkdir -p $NEBUD_RELEASES_PATH
+    wget -c $NEBUD_BIN_MAINNET_URL_TARBALL -O - | tar -xz -C $NEBUD_RELEASES_PATH
 
-    UMEED_BIN_MAINNET_BASENAME=$(basename $UMEED_BIN_MAINNET_URL_TARBALL .tar.gz)
-    UMEED_BIN_MAINNET=$UMEED_RELEASES_PATH/$UMEED_BIN_MAINNET_BASENAME/umeed
+    NEBUD_BIN_MAINNET_BASENAME=$(basename $NEBUD_BIN_MAINNET_URL_TARBALL .tar.gz)
+    NEBUD_BIN_MAINNET=$NEBUD_RELEASES_PATH/$NEBUD_BIN_MAINNET_BASENAME/nebud
   fi
 }
 
 mac_mainnet() {
   if [[ "$architecture" == "arm64" ]];then
-    UMEED_BIN_MAINNET_URL_TARBALL=${UMEED_BIN_MAINNET_URL_TARBALL:-"https://github.com/umee-network/umee/releases/download/${MAINNET_VERSION}/umeed-${MAINNET_VERSION}-darwin-arm64.tar.gz"}
-    UMEED_BIN_MAINNET=${UMEED_BIN_MAINNET:-"$CWD/umeed-releases/umeed-${MAINNET_VERSION}-darwin-arm64/umeed"}
+    NEBUD_BIN_MAINNET_URL_TARBALL=${NEBUD_BIN_MAINNET_URL_TARBALL:-"https://github.com/tessornetwork/nebula/releases/download/${MAINNET_VERSION}/nebud-${MAINNET_VERSION}-darwin-arm64.tar.gz"}
+    NEBUD_BIN_MAINNET=${NEBUD_BIN_MAINNET:-"$CWD/nebud-releases/nebud-${MAINNET_VERSION}-darwin-arm64/nebud"}
   else
-    UMEED_BIN_MAINNET_URL_TARBALL=${UMEED_BIN_MAINNET_URL_TARBALL:-"https://github.com/umee-network/umee/releases/download/${MAINNET_VERSION}/umeed-${MAINNET_VERSION}-darwin-amd64.tar.gz"}
-    UMEED_BIN_MAINNET=${UMEED_BIN_MAINNET:-"$CWD/umeed-releases/umeed-${MAINNET_VERSION}-darwin-amd64/umeed"}
+    NEBUD_BIN_MAINNET_URL_TARBALL=${NEBUD_BIN_MAINNET_URL_TARBALL:-"https://github.com/tessornetwork/nebula/releases/download/${MAINNET_VERSION}/nebud-${MAINNET_VERSION}-darwin-amd64.tar.gz"}
+    NEBUD_BIN_MAINNET=${NEBUD_BIN_MAINNET:-"$CWD/nebud-releases/nebud-${MAINNET_VERSION}-darwin-amd64/nebud"}
   fi
 }
 
 linux_mainnet(){
   if [[ "$architecture" == "arm64" ]];then
-    UMEED_BIN_MAINNET_URL_TARBALL=${UMEED_BIN_MAINNET_URL_TARBALL:-"https://github.com/umee-network/umee/releases/download/${MAINNET_VERSION}/umeed-${MAINNET_VERSION}-linux-arm64.tar.gz"}
-    UMEED_BIN_MAINNET=${UMEED_BIN_MAINNET:-"$CWD/umeed-releases/umeed-${MAINNET_VERSION}-linux-arm64/umeed"}
+    NEBUD_BIN_MAINNET_URL_TARBALL=${NEBUD_BIN_MAINNET_URL_TARBALL:-"https://github.com/tessornetwork/nebula/releases/download/${MAINNET_VERSION}/nebud-${MAINNET_VERSION}-linux-arm64.tar.gz"}
+    NEBUD_BIN_MAINNET=${NEBUD_BIN_MAINNET:-"$CWD/nebud-releases/nebud-${MAINNET_VERSION}-linux-arm64/nebud"}
   else
-    UMEED_BIN_MAINNET_URL_TARBALL=${UMEED_BIN_MAINNET_URL_TARBALL:-"https://github.com/umee-network/umee/releases/download/${MAINNET_VERSION}/umeed-${MAINNET_VERSION}-linux-amd64.tar.gz"}
-    UMEED_BIN_MAINNET=${UMEED_BIN_MAINNET:-"$CWD/umeed-releases/umeed-${MAINNET_VERSION}-linux-amd64/umeed"}
+    NEBUD_BIN_MAINNET_URL_TARBALL=${NEBUD_BIN_MAINNET_URL_TARBALL:-"https://github.com/tessornetwork/nebula/releases/download/${MAINNET_VERSION}/nebud-${MAINNET_VERSION}-linux-amd64.tar.gz"}
+    NEBUD_BIN_MAINNET=${NEBUD_BIN_MAINNET:-"$CWD/nebud-releases/nebud-${MAINNET_VERSION}-linux-amd64/nebud"}
   fi
 }
 

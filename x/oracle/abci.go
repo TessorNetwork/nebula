@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/telemetry"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/umee-network/umee/v3/x/oracle/keeper"
-	"github.com/umee-network/umee/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/v3/x/oracle/keeper"
+	"github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 // isPeriodLastBlock returns true if we are at the last block of the period

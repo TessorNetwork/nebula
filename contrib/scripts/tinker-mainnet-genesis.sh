@@ -6,14 +6,14 @@
 
 CWD="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-UMEEMAINNET_GENESIS_PATH="${UMEEMAINNET_GENESIS_PATH:-$CWD/mainnet_tinkered_genesis.json}"
-MAINNET_EXPORTED_GENESIS_URL="${MAINNET_EXPORTED_GENESIS_URL:-"https://storage.googleapis.com/umeedropzone/mainnet-3269830-genesis.json.gz"}"
-EXPORTED_GENESIS_UNPROCESSED="${EXPORTED_GENESIS_UNPROCESSED:-$CWD/umeemainnet.genesis.json}"
-EXPORTED_GENESIS_UNZIPED="${EXPORTED_GENESIS_UNZIPED:-$CWD/umeemainnet.genesis.json.gz}"
+NEBULAMAINNET_GENESIS_PATH="${NEBULAMAINNET_GENESIS_PATH:-$CWD/mainnet_tinkered_genesis.json}"
+MAINNET_EXPORTED_GENESIS_URL="${MAINNET_EXPORTED_GENESIS_URL:-"https://storage.googleapis.com/nebudropzone/mainnet-3269830-genesis.json.gz"}"
+EXPORTED_GENESIS_UNPROCESSED="${EXPORTED_GENESIS_UNPROCESSED:-$CWD/nebulamainnet.genesis.json}"
+EXPORTED_GENESIS_UNZIPED="${EXPORTED_GENESIS_UNZIPED:-$CWD/nebulamainnet.genesis.json.gz}"
 
 # Checks for the tinkered genesis file
-if [ ! -f "$UMEEMAINNET_GENESIS_PATH" ]; then
-  echo "$UMEEMAINNET_GENESIS_PATH doesn't exist"
+if [ ! -f "$NEBULAMAINNET_GENESIS_PATH" ]; then
+  echo "$NEBULAMAINNET_GENESIS_PATH doesn't exist"
 
   if [ ! -f "$EXPORTED_GENESIS_UNPROCESSED" ]; then
 
@@ -27,5 +27,5 @@ if [ ! -f "$UMEEMAINNET_GENESIS_PATH" ]; then
   fi
 
   echo "$EXPORTED_GENESIS_UNPROCESSED exists and ready to be processed"
-  EXPORTED_GENESIS_UNPROCESSED_PATH=$EXPORTED_GENESIS_UNPROCESSED COSMOS_GENESIS_TINKERER_SCRIPT=umeemainnet-fork.py EXPORTED_GENESIS_PROCESSED_PATH=$UMEEMAINNET_GENESIS_PATH $CWD/process_genesis.sh
+  EXPORTED_GENESIS_UNPROCESSED_PATH=$EXPORTED_GENESIS_UNPROCESSED COSMOS_GENESIS_TINKERER_SCRIPT=nebulamainnet-fork.py EXPORTED_GENESIS_PROCESSED_PATH=$NEBULAMAINNET_GENESIS_PATH $CWD/process_genesis.sh
 fi

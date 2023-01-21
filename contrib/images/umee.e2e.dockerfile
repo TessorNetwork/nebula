@@ -3,14 +3,14 @@ FROM golang:1.19-alpine AS base-builder
 ENV PACKAGES make git libc-dev gcc linux-headers ca-certificates build-base
 RUN apk add --no-cache $PACKAGES
 
-# Fetch base umee packages
-FROM base-builder AS umee-base-builder
+# Fetch base nebula packages
+FROM base-builder AS nebula-base-builder
 ENV PACKAGES curl bash eudev-dev python3
 RUN apk add --no-cache $PACKAGES
 
-# Compile the umeed binary
-FROM umee-base-builder AS umeed-builder
-WORKDIR /src/umee
+# Compile the nebud binary
+FROM nebula-base-builder AS nebud-builder
+WORKDIR /src/nebula
 COPY . .
 RUN go mod download
 
@@ -34,8 +34,8 @@ RUN cd peggo && git checkout ${PEGGO_VERSION} && make build && cp ./build/peggo 
 
 # Add to a distroless container
 FROM gcr.io/distroless/cc:debug
-COPY --from=umeed-builder /go/bin/* /usr/local/bin/
+COPY --from=nebud-builder /go/bin/* /usr/local/bin/
 COPY --from=peggo-builder /usr/local/bin/peggo /usr/local/bin/
 
 EXPOSE 26656 26657 1317 9090 7171
-ENTRYPOINT ["umeed", "start"]
+ENTRYPOINT ["nebud", "start"]

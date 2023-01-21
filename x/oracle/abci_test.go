@@ -14,10 +14,10 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	umeeapp "github.com/umee-network/umee/v3/app"
-	appparams "github.com/umee-network/umee/v3/app/params"
-	"github.com/umee-network/umee/v3/x/oracle"
-	"github.com/umee-network/umee/v3/x/oracle/types"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/x/oracle"
+	"github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 const (
@@ -29,7 +29,7 @@ type IntegrationTestSuite struct {
 	suite.Suite
 
 	ctx sdk.Context
-	app *umeeapp.UmeeApp
+	app *nebulaapp.NebulaApp
 }
 
 const (
@@ -39,7 +39,7 @@ const (
 func (s *IntegrationTestSuite) SetupTest() {
 	require := s.Require()
 	isCheckTx := false
-	app := umeeapp.Setup(s.T(), isCheckTx, 1)
+	app := nebulaapp.Setup(s.T(), isCheckTx, 1)
 	ctx := app.BaseApp.NewContext(isCheckTx, tmproto.Header{
 		ChainID: fmt.Sprintf("test-chain-%s", tmrand.Str(4)),
 		Height:  int64(types.DefaultMedianPeriod) - 1,

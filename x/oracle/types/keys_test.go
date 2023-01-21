@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	appparams "github.com/umee-network/umee/v3/app/params"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
 )
 
 func TestKeyExchangeRate(t *testing.T) {
@@ -120,7 +120,7 @@ func TestUintWithNullPrefix(t *testing.T) {
 }
 
 func TestParseBlockFromHistoricPriceKey(t *testing.T) {
-	denom := "umee"
+	denom := "nebula"
 	blockNum := uint64(4567)
 	key := KeyHistoricPrice(denom, blockNum)
 
@@ -129,7 +129,7 @@ func TestParseBlockFromHistoricPriceKey(t *testing.T) {
 }
 
 func TestParseDenomFromHistoricPriceKey(t *testing.T) {
-	denom := "umee"
+	denom := "nebula"
 	blockNum := uint64(4567)
 	key := KeyHistoricPrice(denom, blockNum)
 
@@ -138,7 +138,7 @@ func TestParseDenomFromHistoricPriceKey(t *testing.T) {
 }
 
 func TestParseDenomFromMedianKey(t *testing.T) {
-	denom := "umee"
+	denom := "nebula"
 	key := KeyMedian(denom)
 
 	parsedDenom := ParseDenomFromMedianKey(key)

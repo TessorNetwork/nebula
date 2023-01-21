@@ -3,7 +3,7 @@ package fixtures
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/umee-network/umee/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/v3/x/leverage/types"
 )
 
 // Params returns leverage params used in testing.

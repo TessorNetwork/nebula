@@ -12,8 +12,8 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 
-	umeeapp "github.com/umee-network/umee/v3/app"
-	"github.com/umee-network/umee/v3/app/params"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	"github.com/tessornetwork/nebula/v3/app/params"
 )
 
 const (
@@ -27,7 +27,7 @@ var (
 )
 
 func init() {
-	encodingConfig = umeeapp.MakeEncodingConfig()
+	encodingConfig = nebulaapp.MakeEncodingConfig()
 
 	encodingConfig.InterfaceRegistry.RegisterImplementations(
 		(*sdk.Msg)(nil),
@@ -51,7 +51,7 @@ type chain struct {
 }
 
 func newChain() (*chain, error) {
-	tmpDir, err := os.MkdirTemp("", "umee-e2e-testnet-")
+	tmpDir, err := os.MkdirTemp("", "nebula-e2e-testnet-")
 	if err != nil {
 		return nil, err
 	}
@@ -135,7 +135,7 @@ func (c *chain) createValidator(index int) *validator {
 	return &validator{
 		chain:   c,
 		index:   index,
-		moniker: "umee",
+		moniker: "nebula",
 	}
 }
 

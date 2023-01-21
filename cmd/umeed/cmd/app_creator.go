@@ -23,9 +23,9 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/umee-network/umee/v3/ante"
-	umeeapp "github.com/umee-network/umee/v3/app"
-	appparams "github.com/umee-network/umee/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/ante"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
 )
 
 type appCreator struct {
@@ -71,20 +71,20 @@ func (a appCreator) newApp(
 	)
 
 	minGasPrices := cast.ToString(appOpts.Get(server.FlagMinGasPrices))
-	mustMinUmeeGasPrice(minGasPrices)
+	mustMinNebulaGasPrice(minGasPrices)
 
 	var wasmOpts []wasm.Option
 	if cast.ToBool(appOpts.Get("telemetry.enabled")) {
 		wasmOpts = append(wasmOpts, wasmkeeper.WithVMCacheMetrics(prometheus.DefaultRegisterer))
 	}
 
-	return umeeapp.New(
+	return nebulaapp.New(
 		logger, db, traceStore, true, skipUpgradeHeights,
 		cast.ToString(appOpts.Get(flags.FlagHome)),
 		cast.ToUint(appOpts.Get(server.FlagInvCheckPeriod)),
 		a.encCfg,
 		appOpts,
-		umeeapp.GetWasmEnabledProposals(),
+		nebulaapp.GetWasmEnabledProposals(),
 		wasmOpts,
 		baseapp.SetPruning(pruningOpts),
 		baseapp.SetMinGasPrices(minGasPrices),
@@ -98,7 +98,7 @@ func (a appCreator) newApp(
 	)
 }
 
-func mustMinUmeeGasPrice(minGasPrices string) {
+func mustMinNebulaGasPrice(minGasPrices string) {
 	gasPrices, err := sdk.ParseDecCoins(minGasPrices)
 	if err != nil {
 		stdlog.Fatalf("invalid minimum gas prices: %v", err)
@@ -129,7 +129,7 @@ func (a appCreator) appExport(
 		loadLatest = true
 	}
 
-	app := umeeapp.New(
+	app := nebulaapp.New(
 		logger,
 		db,
 		traceStore,
@@ -139,8 +139,8 @@ func (a appCreator) appExport(
 		uint(1),
 		a.encCfg,
 		appOpts,
-		umeeapp.GetWasmEnabledProposals(),
-		umeeapp.EmptyWasmOpts,
+		nebulaapp.GetWasmEnabledProposals(),
+		nebulaapp.EmptyWasmOpts,
 	)
 
 	if height != -1 {

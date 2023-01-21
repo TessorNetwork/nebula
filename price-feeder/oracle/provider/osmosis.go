@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/umee-network/umee/price-feeder/oracle/types"
-	"github.com/umee-network/umee/v3/util/coin"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/types"
+	"github.com/tessornetwork/nebula/v3/util/coin"
 )
 
 const (

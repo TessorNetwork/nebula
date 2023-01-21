@@ -17,17 +17,17 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/umee-network/umee/v3/x/leverage/client/cli"
-	"github.com/umee-network/umee/v3/x/leverage/keeper"
-	"github.com/umee-network/umee/v3/x/leverage/simulation"
-	"github.com/umee-network/umee/v3/x/leverage/types"
+	"github.com/tessornetwork/nebula/v3/x/leverage/client/cli"
+	"github.com/tessornetwork/nebula/v3/x/leverage/keeper"
+	"github.com/tessornetwork/nebula/v3/x/leverage/simulation"
+	"github.com/tessornetwork/nebula/v3/x/leverage/types"
 )
 
 var (
 	_ module.AppModule      = AppModule{}
 	_ module.AppModuleBasic = AppModuleBasic{}
 	// TODO: Ensure x/leverage implements simulator and then uncomment.
-	// https://github.com/umee-network/umee/issues/644
+	// https://github.com/tessornetwork/nebula/issues/644
 	// _ module.AppModuleSimulation = AppModule{}
 )
 

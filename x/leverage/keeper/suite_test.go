@@ -15,16 +15,16 @@ import (
 	tmrand "github.com/tendermint/tendermint/libs/rand"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	umeeapp "github.com/umee-network/umee/v3/app"
-	appparams "github.com/umee-network/umee/v3/app/params"
-	"github.com/umee-network/umee/v3/x/leverage"
-	"github.com/umee-network/umee/v3/x/leverage/fixtures"
-	"github.com/umee-network/umee/v3/x/leverage/keeper"
-	"github.com/umee-network/umee/v3/x/leverage/types"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/x/leverage"
+	"github.com/tessornetwork/nebula/v3/x/leverage/fixtures"
+	"github.com/tessornetwork/nebula/v3/x/leverage/keeper"
+	"github.com/tessornetwork/nebula/v3/x/leverage/types"
 )
 
 const (
-	umeeDenom = appparams.BondDenom
+	nebulaDenom = appparams.BondDenom
 	atomDenom = fixtures.AtomDenom
 	daiDenom  = fixtures.DaiDenom
 )
@@ -33,7 +33,7 @@ type IntegrationTestSuite struct {
 	suite.Suite
 
 	ctx                 sdk.Context
-	app                 *umeeapp.UmeeApp
+	app                 *nebulaapp.NebulaApp
 	tk                  keeper.TestKeeper
 	queryClient         types.QueryClient
 	setupAccountCounter sdkmath.Int
@@ -47,7 +47,7 @@ func TestKeeperTestSuite(t *testing.T) {
 
 func (s *IntegrationTestSuite) SetupTest() {
 	require := s.Require()
-	app := umeeapp.Setup(s.T(), false, 1)
+	app := nebulaapp.Setup(s.T(), false, 1)
 	ctx := app.BaseApp.NewContext(false, tmproto.Header{
 		ChainID: fmt.Sprintf("test-chain-%s", tmrand.Str(4)),
 		Height:  1,
@@ -72,7 +72,7 @@ func (s *IntegrationTestSuite) SetupTest() {
 
 	// override DefaultGenesis token registry with fixtures.Token
 	leverage.InitGenesis(ctx, app.LeverageKeeper, *types.DefaultGenesis())
-	require.NoError(app.LeverageKeeper.SetTokenSettings(ctx, newToken(appparams.BondDenom, "UMEE", 6)))
+	require.NoError(app.LeverageKeeper.SetTokenSettings(ctx, newToken(appparams.BondDenom, "NEBULA", 6)))
 	require.NoError(app.LeverageKeeper.SetTokenSettings(ctx, newToken(atomDenom, "ATOM", 6)))
 	require.NoError(app.LeverageKeeper.SetTokenSettings(ctx, newToken(daiDenom, "DAI", 18)))
 
@@ -86,7 +86,7 @@ func (s *IntegrationTestSuite) SetupTest() {
 	s.ctx = ctx
 	s.setupAccountCounter = sdkmath.ZeroInt()
 	s.queryClient = types.NewQueryClient(queryHelper)
-	s.addrs = umeeapp.AddTestAddrsIncremental(app, s.ctx, 1, sdk.NewInt(3000000))
+	s.addrs = nebulaapp.AddTestAddrsIncremental(app, s.ctx, 1, sdk.NewInt(3000000))
 	s.msgSrvr = keeper.NewMsgServerImpl(s.app.LeverageKeeper)
 }
 

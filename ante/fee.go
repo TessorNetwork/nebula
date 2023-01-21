@@ -6,9 +6,9 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	evidencetypes "github.com/cosmos/cosmos-sdk/x/evidence/types"
 
-	appparams "github.com/umee-network/umee/v3/app/params"
-	leveragetypes "github.com/umee-network/umee/v3/x/leverage/types"
-	oracletypes "github.com/umee-network/umee/v3/x/oracle/types"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	leveragetypes "github.com/tessornetwork/nebula/v3/x/leverage/types"
+	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 // MaxMsgGasUsage defines the maximum gas allowed for an oracle transaction.
@@ -125,7 +125,7 @@ func getTxPriority( /*fees, gasAmount*/ isOracleOrGravity bool, msgs []sdk.Msg) 
 	var priority int64
 	/* TODO: IBC tx prioritization is not stable and we will implement a more general
 	 * tx prioritization once that will be resolved
-	 * https://github.com/umee-network/umee/issues/1289
+	 * https://github.com/tessornetwork/nebula/issues/1289
 	for _, c := range fees {
 		p := int64(math.MaxInt64)
 		gasPrice := c.Amount.QuoRaw(gasAmount)

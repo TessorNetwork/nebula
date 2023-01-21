@@ -18,12 +18,12 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	"github.com/cosmos/cosmos-sdk/telemetry"
-	"github.com/umee-network/umee/price-feeder/config"
-	"github.com/umee-network/umee/price-feeder/oracle/client"
-	"github.com/umee-network/umee/price-feeder/oracle/provider"
-	"github.com/umee-network/umee/price-feeder/oracle/types"
-	pfsync "github.com/umee-network/umee/price-feeder/pkg/sync"
-	oracletypes "github.com/umee-network/umee/v3/x/oracle/types"
+	"github.com/tessornetwork/nebula/price-feeder/config"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/client"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/provider"
+	"github.com/tessornetwork/nebula/price-feeder/oracle/types"
+	pfsync "github.com/tessornetwork/nebula/price-feeder/pkg/sync"
+	oracletypes "github.com/tessornetwork/nebula/v3/x/oracle/types"
 )
 
 // We define tickerSleep as the minimum timeout between each oracle loop. We

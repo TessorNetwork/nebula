@@ -23,15 +23,15 @@ import (
 	tmcfg "github.com/tendermint/tendermint/config"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	umeeapp "github.com/umee-network/umee/v3/app"
-	appparams "github.com/umee-network/umee/v3/app/params"
-	"github.com/umee-network/umee/v3/x/leverage"
+	nebulaapp "github.com/tessornetwork/nebula/v3/app"
+	appparams "github.com/tessornetwork/nebula/v3/app/params"
+	"github.com/tessornetwork/nebula/v3/x/leverage"
 )
 
-// NewRootCmd returns the root command handler for the Umee daemon.
+// NewRootCmd returns the root command handler for the Nebula daemon.
 func NewRootCmd() (*cobra.Command, appparams.EncodingConfig) {
-	encodingConfig := umeeapp.MakeEncodingConfig()
-	moduleManager := umeeapp.ModuleBasics
+	encodingConfig := nebulaapp.MakeEncodingConfig()
+	moduleManager := nebulaapp.ModuleBasics
 
 	initClientCtx := client.Context{}.
 		WithCodec(encodingConfig.Codec).
@@ -41,13 +41,13 @@ func NewRootCmd() (*cobra.Command, appparams.EncodingConfig) {
 		WithInput(os.Stdin).
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithBroadcastMode(flags.BroadcastBlock).
-		WithHomeDir(umeeapp.DefaultNodeHome).
+		WithHomeDir(nebulaapp.DefaultNodeHome).
 		WithViper(appparams.Name)
 
 	rootCmd := &cobra.Command{
 		Use:   appparams.Name + "d",
-		Short: "Umee application network daemon and client",
-		Long: `A daemon and client for interacting with the Umee network. Umee is a
+		Short: "Nebula application network daemon and client",
+		Long: `A daemon and client for interacting with the Nebula network. Nebula is a
 Universal Capital Facility that can collateralize assets on one blockchain
 towards borrowing assets on another blockchain.`,
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
@@ -146,40 +146,40 @@ func initRootCmd(rootCmd *cobra.Command, a appCreator) {
 		a.moduleManager,
 		a.encCfg.TxConfig,
 		banktypes.GenesisBalancesIterator{},
-		umeeapp.DefaultNodeHome,
+		nebulaapp.DefaultNodeHome,
 	)
 	bridgeGenTxCmd.Use = strings.Replace(bridgeGenTxCmd.Use, "gentx", "gentx-gravity", 1)
 
 	gentxModule := a.moduleManager[genutiltypes.ModuleName].(genutil.AppModuleBasic)
-	gentxModule.GenTxValidator = umeeapp.GenTxValidator
+	gentxModule.GenTxValidator = nebulaapp.GenTxValidator
 	a.moduleManager[genutiltypes.ModuleName] = gentxModule
 
 	rootCmd.AddCommand(
-		genutilcli.InitCmd(a.moduleManager, umeeapp.DefaultNodeHome),
-		genutilcli.CollectGenTxsCmd(banktypes.GenesisBalancesIterator{}, umeeapp.DefaultNodeHome, umeeapp.GenTxValidator),
+		genutilcli.InitCmd(a.moduleManager, nebulaapp.DefaultNodeHome),
+		genutilcli.CollectGenTxsCmd(banktypes.GenesisBalancesIterator{}, nebulaapp.DefaultNodeHome, nebulaapp.GenTxValidator),
 		genutilcli.MigrateGenesisCmd(),
 		genutilcli.GenTxCmd(
 			a.moduleManager,
 			a.encCfg.TxConfig,
 			banktypes.GenesisBalancesIterator{},
-			umeeapp.DefaultNodeHome,
+			nebulaapp.DefaultNodeHome,
 		),
 		bridgeGenTxCmd,
 		genutilcli.ValidateGenesisCmd(a.moduleManager),
-		addGenesisAccountCmd(umeeapp.DefaultNodeHome),
+		addGenesisAccountCmd(nebulaapp.DefaultNodeHome),
 		tmcli.NewCompletionCmd(rootCmd, true),
 		debugCmd(),
 		config.Cmd(),
 	)
 
-	server.AddCommands(rootCmd, umeeapp.DefaultNodeHome, a.newApp, a.appExport, addModuleInitFlags)
+	server.AddCommands(rootCmd, nebulaapp.DefaultNodeHome, a.newApp, a.appExport, addModuleInitFlags)
 
 	// add keybase, auxiliary RPC, query, and tx child commands
 	rootCmd.AddCommand(
 		rpc.StatusCommand(),
 		queryCommand(a),
 		txCommand(a),
-		keys.Commands(umeeapp.DefaultNodeHome),
+		keys.Commands(nebulaapp.DefaultNodeHome),
 	)
 
 	// add rosetta
