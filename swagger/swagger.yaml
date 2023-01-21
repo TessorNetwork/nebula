@@ -318,9 +318,9 @@ paths:
                 description: >-
                   uToken Exchange Rate is the amount of base tokens received
                   when withdrawing 1 uToken. For example, a uToken exchange rate
-                  of 1.5 means a supplier receives 3 unebula for every 2 u/unebula
-                  they wish to withdraw. The same applies in reverse: supplying
-                  3 unebula would award 2 u/unebula at that time.
+                  of 1.5 means a supplier receives 3 unebula for every 2
+                  u/unebula they wish to withdraw. The same applies in reverse:
+                  supplying 3 unebula would award 2 u/unebula at that time.
               supply_APY:
                 type: string
                 description: >-
@@ -356,8 +356,8 @@ paths:
                   all borrowers. Collateral is denominated in uTokenso, so both
                   uToken exchange rate and exponent must also be applied to
                   convert to symbol denom. For example, if collateral is 4000000
-                  u/unebula and uToken exhange rate is 1.2, then 5 NEBULA have been
-                  collateralized.
+                  u/unebula and uToken exhange rate is 1.2, then 5 NEBULA have
+                  been collateralized.
               borrowed:
                 type: string
                 description: >-
@@ -379,8 +379,8 @@ paths:
                   This amount is less than total supply due to safety limits. It
                   is denominated in base tokens, so exponent must be applied to
                   convert to symbol denom. For example, if borrowed is 3000000
-                  unebula and maximum borrow is 4000000 unebula, then 1 NEBULA is
-                  currently available for borrowing.
+                  unebula and maximum borrow is 4000000 unebula, then 1 NEBULA
+                  is currently available for borrowing.
               maximum_collateral:
                 type: string
                 description: >-
@@ -389,9 +389,10 @@ paths:
                   This amount is less than total supply due to safety limits. It
                   is denominated in uTokens, so both uToken exchange rate and
                   exponent must be applied to convert to symbol denom. For
-                  example, if collateral is 4000000 u/unebula, uToken exhange rate
-                  is 1.2, and maximum borrow is 7000000 unebula, then a maximum of
-                  2 additional NEBULA is permitted to be collateralized.
+                  example, if collateral is 4000000 u/unebula, uToken exhange
+                  rate is 1.2, and maximum borrow is 7000000 unebula, then a
+                  maximum of 2 additional NEBULA is permitted to be
+                  collateralized.
               minimum_liquidity:
                 type: string
                 description: >-
@@ -1987,9 +1988,9 @@ definitions:
         description: >-
           uToken Exchange Rate is the amount of base tokens received when
           withdrawing 1 uToken. For example, a uToken exchange rate of 1.5 means
-          a supplier receives 3 unebula for every 2 u/unebula they wish to withdraw.
-          The same applies in reverse: supplying 3 unebula would award 2 u/unebula
-          at that time.
+          a supplier receives 3 unebula for every 2 u/unebula they wish to
+          withdraw. The same applies in reverse: supplying 3 unebula would award
+          2 u/unebula at that time.
       supply_APY:
         type: string
         description: >-
@@ -2056,8 +2057,8 @@ definitions:
           denominated in uTokens, so both uToken exchange rate and exponent must
           be applied to convert to symbol denom. For example, if collateral is
           4000000 u/unebula, uToken exhange rate is 1.2, and maximum borrow is
-          7000000 unebula, then a maximum of 2 additional NEBULA is permitted to be
-          collateralized.
+          7000000 unebula, then a maximum of 2 additional NEBULA is permitted to
+          be collateralized.
       minimum_liquidity:
         type: string
         description: >-
@@ -2606,7 +2607,8 @@ definitions:
           To mark a token as not valid for supply, `msg_supply` must be set to
           false.
     description: >-
-      Token defines a token, along with its metadata and parameters, in the Nebula
+      Token defines a token, along with its metadata and parameters, in the
+      Nebula
 
       capital facility that can be supplied and borrowed.
 
