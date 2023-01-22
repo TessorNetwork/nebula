@@ -43,15 +43,14 @@ type Params struct {
 	// reaching its maximum when borrowed value passes
 	// complete_liquidation_threshold. We can put it into the picture:
 	//
-	//	           borrowed          CV := collateral
-	//	           value                   value
-	//	--- | ------- | ----- | -------- | ------->
-	//	   LV                 CL
+	//             borrowed          CV := collateral
+	//             value                   value
+	//  --- | ------- | ----- | -------- | ------->
+	//     LV                 CL
 	//
 	// LV = liquidation value = liquidation_threshold * CV
 	// CL = LV + (CV-LV) * complete_liquidation_threshold
-	//
-	//	is the borrowed value above which close factor will be 1.
+	//    is the borrowed value above which close factor will be 1.
 	//
 	// Valid values: 0-1.
 	MinimumCloseFactor github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,3,opt,name=minimum_close_factor,json=minimumCloseFactor,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"minimum_close_factor" yaml:"minimum_close_factor"`
@@ -175,15 +174,11 @@ type Token struct {
 	// Max Supply Utilization specifies the maximum supply utilization a token is
 	// allowed to reach as a direct result of user borrowing. New borrows are not allowed when
 	// the supply utilization is above `max_supply_utilization`.
-	//
-	//	supply_utilization(token) = total_borrowed(token) / total_supply(token)
-	//
+	//    supply_utilization(token) = total_borrowed(token) / total_supply(token)
 	// Valid values: 0-1.
 	MaxSupplyUtilization github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,16,opt,name=max_supply_utilization,json=maxSupplyUtilization,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"max_supply_utilization" yaml:"max_supply_utilization"`
 	// Min Collateral Liquidity specifies min limit for the following function:
-	//
-	//	collateral_liquidity(token) = available(token) / total_collateral(token)
-	//
+	//    collateral_liquidity(token) = available(token) / total_collateral(token)
 	// Borrowing, collateralizing, or withdrawing assets is not allowed when the
 	// result of such action invalidates min_collateral_liquidity.
 	// Liquidity can only drop below this value due to interest or liquidations.

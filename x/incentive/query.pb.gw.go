@@ -795,23 +795,23 @@ func RegisterQueryHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 }
 
 var (
-	pattern_Query_Params_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"nebula", "incentive", "v1", "params"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_Params_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"nebula", "incentive", "v1", "params"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_PendingRewards_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "pending_rewards", "address"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_PendingRewards_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "pending_rewards", "address"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_Bonded_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "bonded", "address"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_Bonded_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "bonded", "address"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_Unbondings_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "unbondings", "address"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_Unbondings_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "unbondings", "address"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_TotalBonded_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"nebula", "incentive", "v1", "total_bonded"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_TotalBonded_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"nebula", "incentive", "v1", "total_bonded"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_CompletedIncentivePrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"nebula", "incentive", "v1", "incentive_programs", "completed"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_CompletedIncentivePrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"nebula", "incentive", "v1", "incentive_programs", "completed"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_OngoingIncentivePrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"nebula", "incentive", "v1", "incentive_programs", "ongoing"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_OngoingIncentivePrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"nebula", "incentive", "v1", "incentive_programs", "ongoing"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_UpcomingIncentivePrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"nebula", "incentive", "v1", "incentive_programs", "upcoming"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_UpcomingIncentivePrograms_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"nebula", "incentive", "v1", "incentive_programs", "upcoming"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_IncentiveProgram_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "incentive_program", "id"}, "", runtime.AssumeColonVerbOpt(false)))
+	pattern_Query_IncentiveProgram_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"nebula", "incentive", "v1", "incentive_program", "id"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
