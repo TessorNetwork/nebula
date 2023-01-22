@@ -29,7 +29,7 @@ VOTING_PERIOD="${VOTING_PERIOD:-20s}"
 # Default 1 account keys + 1 user key with no special grants
 VAL0_KEY="val"
 VAL0_MNEMONIC="copper push brief egg scan entry inform record adjust fossil boss egg comic alien upon aspect dry avoid interest fury window hint race symptom"
-VAL0_ADDR="nebula1y6xz2ggfc0pcsmyjlekh0j9pxh6hk87ymc9due"
+VAL0_ADDR="nebula1y6xz2ggfc0pcsmyjlekh0j9pxh6hk87yyujwem"
 
 USER_KEY="user"
 USER_MNEMONIC="pony glide frown crisp unfold lawn cup loan trial govern usual matrix theory wash fresh address pioneer between meadow visa buffalo keep gallery swear"
