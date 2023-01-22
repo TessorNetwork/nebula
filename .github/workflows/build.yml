@@ -24,7 +24,7 @@ jobs:
         with:
           path: ./cmd/nebud/nebud
           key: nebud-${{ matrix.targetos }}-${{ matrix.arch }}
-      - uses: technote-space/get-diff-action@v6.1.1
+      - uses: technote-space/get-diff-action@v6.1.2
         with:
           PATTERNS: |
             **/**.go
